@@ -3,6 +3,8 @@ import footer
 import components.home_content
 import components.controls_content
 import components.data_content
+import components.object_content
+
 from pathlib import Path
 
 import os
@@ -81,7 +83,7 @@ def index():
                             .props("no-caps") as tab_object
                         ):
                             ui.icon("star").classes("text-3xl")
-                            ui.label("Object")
+                            ui.label("Slit viewer")
 
         with ui.tab_panels(tabs1, value="tab_1").classes("w-full") as tab_panel:
             #####################################################################################
@@ -100,6 +102,10 @@ def index():
                 'font-family: "Rational Display", sans-serif;'
             ):
                 components.data_content.content()
+            with ui.tab_panel("tab_0").style(
+                'font-family: "Rational Display", sans-serif;'
+            ):
+                components.object_content.content()
 
         header_below.tailwind("pt-16")
         tab_panel.tailwind("pt-16 pl-16 pr-16")
